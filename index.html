@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Data & Software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --text: #1a1a18;
+      --muted: #6b6b66;
+      --accent: #1a1a18;
+      --border: #e2e0da;
+      --tag-bg: #ededea;
+      --tag-text: #4a4a46;
+      --link: #2563eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111110;
+        --surface: #1c1c1a;
+        --text: #f0ede8;
+        --muted: #8a8a84;
+        --accent: #f0ede8;
+        --border: #2e2e2a;
+        --tag-bg: #242420;
+        --tag-text: #a8a89e;
+        --link: #60a5fa;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Mono', monospace;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 3rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      width: 100%;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--muted);
+    }
+
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .hero-desc {
+      max-width: 500px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .hero-cta:hover { background: var(--surface); border-color: var(--text); }
+
+    .hero-cta .arrow { transition: transform 0.2s; }
+    .hero-cta:hover .arrow { transform: translateX(4px); }
+
+    /* SECTIONS */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-num {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .about-skills { }
+
+    .skill-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-group-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 12px;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    /* PROJECTS */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+    }
+
+    .project-item:first-child { border-top: 1px solid var(--border); }
+
+    .project-num {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      padding-top: 2px;
+    }
+
+    .project-content { }
+
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 0.75rem;
+      max-width: 460px;
+    }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .project-arrow {
+      color: var(--muted);
+      font-size: 18px;
+      padding-top: 4px;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .project-item:hover .project-arrow { transform: translate(3px, -3px); color: var(--text); }
+    .project-item:hover .project-title { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* RESUME */
+    .resume-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .resume-section-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .resume-item {
+      margin-bottom: 2rem;
+    }
+
+    .resume-role {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    .resume-org {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 0.1rem;
+    }
+
+    .resume-date {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+
+    .resume-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 2rem;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+
+    .resume-download:hover { border-color: var(--text); }
+
+    /* CONTACT */
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-tagline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .contact-sub {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      transition: color 0.2s;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-link:last-child { border-bottom: none; }
+    .contact-link:hover { color: var(--text); }
+
+    .contact-link-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 60px;
+    }
+
+    .contact-link:hover .contact-link-label { color: var(--text); }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem 3rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      #hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .about-grid, .resume-cols, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .project-item { grid-template-columns: 40px 1fr; }
+      .project-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#hero" class="nav-logo">Your Name</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero-inner">
+      <p class="hero-label">Data &amp; Software Engineer</p>
+      <h1 class="hero-name">Your<br /><em>Name.</em></h1>
+      <p class="hero-desc">
+        I build data pipelines, analytical tools, and software that turn raw information
+        into clear decisions. Based in New York, open to interesting problems.
+      </p>
+      <a href="#projects" class="hero-cta">View my work <span class="arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a data and software engineer who enjoys working at the intersection of
+          engineering and analysis — designing systems that are both robust and genuinely
+          useful.
+        </p>
+        <p>
+          I've worked on everything from ETL pipelines and dashboards to predictive
+          models and internal tooling. I care about clean, well-documented code and
+          communicating clearly with non-technical stakeholders.
+        </p>
+        <p>
+          Outside of work, I'm into [your interests here].
+        </p>
+      </div>
+      <div class="about-skills">
+        <div class="skill-group">
+          <p class="skill-group-label">Languages</p>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">R</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-label">Data & ML</p>
+          <div class="skill-tags">
+            <span class="tag">Pandas</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">dbt</span>
+            <span class="tag">Spark</span>
+            <span class="tag">Airflow</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-label">Infrastructure</p>
+          <div class="skill-tags">
+            <span class="tag">AWS</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Git</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-label">Visualization</p>
+          <div class="skill-tags">
+            <span class="tag">Tableau</span>
+            <span class="tag">Plotly</span>
+            <span class="tag">D3.js</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <div class="projects-list">
+
+      <a href="#" class="project-item">
+        <span class="project-num">001</span>
+        <div class="project-content">
+          <h3 class="project-title">Project Title One</h3>
+          <p class="project-desc">
+            A short description of what this project does, the problem it solves,
+            and any interesting technical challenges you tackled.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Airflow</span>
+          </div>
+        </div>
+        <span class="project-arrow">↗</span>
+      </a>
+
+      <a href="#" class="project-item">
+        <span class="project-num">002</span>
+        <div class="project-content">
+          <h3 class="project-title">Project Title Two</h3>
+          <p class="project-desc">
+            Another project description. Highlight outcomes and impact where possible —
+            e.g. "reduced query time by 60%" or "used by 500+ users."
+          </p>
+          <div class="project-tags">
+            <span class="tag">scikit-learn</span>
+            <span class="tag">AWS</span>
+            <span class="tag">FastAPI</span>
+          </div>
+        </div>
+        <span class="project-arrow">↗</span>
+      </a>
+
+      <a href="#" class="project-item">
+        <span class="project-num">003</span>
+        <div class="project-content">
+          <h3 class="project-title">Project Title Three</h3>
+          <p class="project-desc">
+            A third project — maybe an open-source contribution, analysis, or tool
+            you built for fun. Link to GitHub or a write-up.
+          </p>
+          <div class="project-tags">
+            <span class="tag">R</span>
+            <span class="tag">D3.js</span>
+            <span class="tag">dbt</span>
+          </div>
+        </div>
+        <span class="project-arrow">↗</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Resume</h2>
+    </div>
+    <div class="resume-cols">
+      <div>
+        <p class="resume-section-label">Experience</p>
+
+        <div class="resume-item">
+          <p class="resume-role">Senior Data Engineer</p>
+          <p class="resume-org">Company Name</p>
+          <p class="resume-date">2022 — Present</p>
+        </div>
+
+        <div class="resume-item">
+          <p class="resume-role">Data Analyst</p>
+          <p class="resume-org">Previous Company</p>
+          <p class="resume-date">2020 — 2022</p>
+        </div>
+
+        <div class="resume-item">
+          <p class="resume-role">Junior Developer</p>
+          <p class="resume-org">First Job Co.</p>
+          <p class="resume-date">2018 — 2020</p>
+        </div>
+
+        <a href="resume.pdf" class="resume-download">Download full CV ↓</a>
+      </div>
+
+      <div>
+        <p class="resume-section-label">Education</p>
+
+        <div class="resume-item">
+          <p class="resume-role">B.S. Computer Science</p>
+          <p class="resume-org">University Name</p>
+          <p class="resume-date">2014 — 2018</p>
+        </div>
+
+        <p class="resume-section-label" style="margin-top: 2rem;">Certifications</p>
+
+        <div class="resume-item">
+          <p class="resume-role">AWS Certified Data Engineer</p>
+          <p class="resume-date">2023</p>
+        </div>
+
+        <div class="resume-item">
+          <p class="resume-role">Google Data Analytics Certificate</p>
+          <p class="resume-date">2021</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <div class="contact-inner">
+      <div>
+        <p class="contact-tagline">Let's work on something good.</p>
+        <p class="contact-sub">Open to full-time roles, freelance projects, and interesting collaborations.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:you@email.com" class="contact-link">
+          <span class="contact-link-label">Email</span>
+          you@email.com
+        </a>
+        <a href="https://github.com/yourusername" class="contact-link" target="_blank" rel="noopener">
+          <span class="contact-link-label">GitHub</span>
+          github.com/yourusername
+        </a>
+        <a href="https://linkedin.com/in/yourusername" class="contact-link" target="_blank" rel="noopener">
+          <span class="contact-link-label">LinkedIn</span>
+          linkedin.com/in/yourusername
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built with HTML & CSS — <a href="https://pages.github.com" style="color: inherit;">Hosted on GitHub Pages</a></p>
+  </footer>
+
+</body>
+</html>
