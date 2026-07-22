@@ -999,6 +999,52 @@
       <a href="#" class="project-item">
         <div class="project-header">
           <span class="project-num">001</span>
+          <h3 class="project-title">Wine AI Agent — Natural Language Excel Add-in</h3>
+          <span class="project-arrow">↗</span>
+       </div>
+        <p class="project-meta">Jul 2026 &nbsp;·&nbsp; Personal Project &nbsp;·&nbsp; Full-Stack Development</p>
+        <p class="project-desc">Built an Excel add-in that lets users filter and sort a wine collection using plain-English prompts — things like "red wines under $20" or "champagne for a celebration" — instead of manually configuring spreadsheet filters. Designed a rule-based natural language parser that maps prompts to Excel's native Table API, so all formatting, colors, and layout are preserved exactly as-is.</p>
+        <ul class="project-bullets">
+          <li><strong>Natural Language Parsing</strong> — Built a TypeScript parser that extracts wine type, country, region, grape, price range, rating, and vintage from unstructured prompts using pattern matching and synonym dictionaries</li>
+          <li><strong>Domain Knowledge Base</strong> — Authored a food/occasion pairing dictionary mapping 25+ categories (steak, seafood, celebrations, budget-friendly, etc.) to appropriate wine types and grapes</li>
+          <li><strong>Excel API Integration</strong> — Used Office.js's Table filter and sort APIs directly, avoiding any cell rewrites so existing formatting is never disturbed</li>
+          <li><strong>Deployment</strong> — Shipped a production build to GitHub Pages with a signed manifest, enabling one-click sideloading for non-technical end users on Mac and Windows</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">TypeScript</span>
+          <span class="tag">Office.js</span>
+          <span class="tag">Excel API</span>
+          <span class="tag">Webpack</span>
+          <span class="tag">GitHub Pages</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-item">
+        <div class="project-header">
+          <span class="project-num">002</span>
+          <h3 class="project-title">Wine Prompt Sorter — No-AI Natural Language Filtering</h3>
+          <span class="project-arrow">↗</span>
+       </div>
+        <p class="project-meta">Jul 2026 &nbsp;·&nbsp; Personal Project &nbsp;·&nbsp; Prototype</p>
+        <p class="project-desc">Designed and built a single-file browser tool that filters and sorts a wine spreadsheet from plain-English prompts, without calling any AI model at runtime. Deliberately built as pure pattern-matching so it runs entirely client-side — no API key, no AI account, and nothing to review or approve on a work computer with restricted software access.</p>
+        <ul class="project-bullets">
+          <li><strong>Rule-Based Prompt Parsing</strong> — Hand-written JavaScript pattern matcher that extracts type, country, region, grape, price range, rating, and vintage from free-text prompts, matched against the actual unique values in the loaded spreadsheet rather than a fixed list</li>
+          <li><strong>Domain Knowledge Base</strong> — Authored a food/occasion/style dictionary mapping 25+ concepts (steak night, celebrations, budget-friendly, bold vs. crisp, etc.) to candidate wine types and grapes, layered so explicit prompt terms always override inferred suggestions</li>
+          <li><strong>Spreadsheet I/O</strong> — Used SheetJS to parse uploaded .xlsx/.csv files into row objects and re-export the filtered/sorted view as a new downloadable workbook</li>
+          <li><strong>Transparent Matching</strong> — Surfaced a live "here's what I understood from your prompt" line above the results table, so misreads are visible immediately instead of silently returning wrong results</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">SheetJS</span>
+          <span class="tag">Pattern Matching</span>
+          <span class="tag">Client-Side</span>
+          <span class="tag">Prototype</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-item">
+        <div class="project-header">
+          <span class="project-num">003</span>
           <h3 class="project-title">Does Digital Campaigning Mobilize Young Voters?</h3>
           <span class="project-arrow">↗</span>
         </div>
@@ -1021,7 +1067,7 @@
 
       <a href="#" class="project-item">
         <div class="project-header">
-          <span class="project-num">002</span>
+          <span class="project-num">004</span>
           <h3 class="project-title">Comparing Tax Policies in the 2024 U.S. Presidential Election</h3>
           <span class="project-arrow">↗</span>
         </div>
@@ -1044,7 +1090,7 @@
 
       <a href="#" class="project-item">
         <div class="project-header">
-          <span class="project-num">003</span>
+          <span class="project-num">005</span>
           <h3 class="project-title">This Portfolio Site</h3>
           <span class="project-arrow">↗</span>
         </div>
