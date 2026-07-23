@@ -559,6 +559,7 @@
     }
 
     .testimonial-quote::before { content: "\201C"; color: var(--accent); font-size: 1.4rem; line-height: 0; vertical-align: -0.3rem; margin-right: 2px; }
+    .testimonial-quote::after { content: "\201D"; color: var(--accent); }
 
     .testimonial-person {
       display: flex;
@@ -775,14 +776,17 @@
       background: var(--border);
       border: 1px solid var(--border);
     }
-    .press-more-item .press-read {
-      display: block;
-      margin-top: 0.6rem;
-      font-size: 10px;
+    .press-more-item {
+  display: block;
+  background: var(--bg);
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+}
     }
-    .press-more-item:hover .press-read { gap: 0.7rem; }
     .press-more-item:hover .press-more-outlet { color: var(--accent); }
-    }
+    
   </style>
 </head>
 <body>
@@ -839,7 +843,7 @@
         </p>
         <p>
           I care about rigor, reproducibility, and making complex findings accessible
-          to non-technical audiences. Dean's List recipient and AP Scholar with Distinction.
+          to non-technical audiences. 
         </p>
       </div>
       <div class="about-skills">
