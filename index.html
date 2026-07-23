@@ -775,15 +775,12 @@
       background: var(--border);
       border: 1px solid var(--border);
     }
-    .press-more-item {
-      background: var(--bg);
-      padding: 1.25rem;
-      text-decoration: none;
-      color: inherit;
+    .press-more-item .press-read {
       display: block;
-      transition: background 0.2s;
+      margin-top: 0.6rem;
+      font-size: 10px;
     }
-    .press-more-item:hover { background: var(--surface); }
+    .press-more-item:hover .press-read { gap: 0.7rem; }
     .press-more-item:hover .press-more-outlet { color: var(--accent); }
     }
   </style>
@@ -1169,11 +1166,11 @@
         <span class="press-more-title">Meet Tap's Next Generation of Stars</span>
         <span class="press-read">Read the article &rarr;</span>
       </a>
-      <div class="press-more-item" href="https://www.youtube.com/@avabrooks6846" target="_blank" rel="noopener">
-        <span class="press-more-outlet">Youtube:</span>
+     <a class="press-more-item" href="https://www.youtube.com/@avabrooks6846" target="_blank" rel="noopener">
+        <span class="press-more-outlet">YouTube:</span>
         <span class="press-more-title">Ava Brooks</span>
         <span class="press-read">Go to Channel &rarr;</span>
-      </div>
+      </a>
     </div>
   </section>
 
