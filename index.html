@@ -307,11 +307,7 @@
       margin-bottom: 0.15rem;
     }
 
-    .testimonial-card {
-  text-decoration: none;
-  color: inherit;
-}
-
+   
     .exp-org {
       color: var(--accent);
       font-size: 11px;
@@ -519,21 +515,26 @@
       gap: 1.5rem;
     }
 
-    .testimonial-card {
+   .testimonial-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      padding: 1.75rem;
+      padding: 2rem 1.75rem;
       position: relative;
-    }
-
-    .testimonial-card.placeholder {
-      border-style: datheyd;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      min-height: 180px;
+      min-height: 200px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .testimonial-card:hover { border-color: var(--accent); }
+
+    .testimonial-card.placeholder {
+      border-style: dashed;
       color: var(--muted);
     }
 
@@ -562,9 +563,10 @@
     .testimonial-person {
       display: flex;
       flex-direction: column;
-      gap: 0.1rem;
+      align-items: center;
+      gap: 0.2rem;
+      margin-top: 1.5rem;
     }
-
     .testimonial-name {
       font-size: 12px;
       font-weight: 500;
@@ -773,12 +775,16 @@
       background: var(--border);
       border: 1px solid var(--border);
     }
-    .press-more-item { background: var(--bg); padding: 1.25rem; }
-    .press-more-outlet { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.3rem; }
-    .press-more-title { font-size: 12px; color: var(--muted); font-style: italic; display: block; }
-    @media (max-width: 700px) {
-      .press-featured { grid-template-columns: 1fr; }
-      .press-more-grid { grid-template-columns: 1fr; }
+    .press-more-item {
+      background: var(--bg);
+      padding: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.2s;
+    }
+    .press-more-item:hover { background: var(--surface); }
+    .press-more-item:hover .press-more-outlet { color: var(--accent); }
     }
   </style>
 </head>
@@ -1151,16 +1157,16 @@
       </div>
     </a>
 
-    <p class="press-more-label">More coverage &mdash; Dance</p>
+   <p class="press-more-label">More coverage &mdash; Dance</p>
     <div class="press-more-grid">
-      <div class="press-more-item">
-        <span class="press-more-outlet" href="https://dancespirit.com/5-standout-comp-kids/">Dance Spirit Magazine</span>
+      <a class="press-more-item" href="https://dancespirit.com/5-standout-comp-kids/" target="_blank" rel="noopener">
+        <span class="press-more-outlet">Dance Spirit Magazine</span>
         <span class="press-more-title">5 Standout Comp Kids You Should Be Following—Now</span>
-      </div>
-      <div class="press-more-item"  href="https://dancespirit.com/meet-the-eight-young-dancers-tap-icons-cant-stop-watching/">
+      </a>
+      <a class="press-more-item" href="https://dancespirit.com/meet-the-eight-young-dancers-tap-icons-cant-stop-watching/" target="_blank" rel="noopener">
         <span class="press-more-outlet">Dance Spirit Magazine</span>
         <span class="press-more-title">Meet Tap's Next Generation of Stars</span>
-      </div>
+      </a>
       <div class="press-more-item">
         <span class="press-more-outlet">Outlet</span>
         <span class="press-more-title">Coverage, interviews, bylines...</span>
@@ -1177,11 +1183,11 @@
     <div class="testimonials-grid">
       <a href="https://www.linkedin.com/in/ava-brooks-56b64a273/details/recommendations/" 
          class="testimonial-card" target="_blank" rel="noopener">
-      <p>
-        <q>Ava is a diligent and innovative worker who is creative in finding solutions to complex problems. Specifically, the work I supervised...was exceptional and beyond expectations.</q>
-        <br />
-        <span style="font-size:11px;opacity:0.5;">Connor Reed, Country First Academy</span>
-      </p>
+        <p class="testimonial-quote">Ava is a diligent and innovative worker who is creative in finding solutions to complex problems. Specifically, the work I supervised&hellip;was exceptional and beyond expectations.</p>
+        <div class="testimonial-person">
+          <span class="testimonial-name">Connor Reed</span>
+          <span class="testimonial-role">Country First Academy</span>
+        </div>
       </a>
       <a href="https://www.linkedin.com/in/YOUR-USERNAME/details/recommendations/" 
          class="testimonial-card placeholder" target="_blank" rel="noopener">
