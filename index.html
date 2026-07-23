@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { overflow-x: hidden; }
 
     :root {
       --bg: #f7f5f1;
@@ -697,6 +698,16 @@
       .exp-resume-wrap { grid-template-columns: 1fr; }
       .resume-sidebar { position: static; }
       .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
+
+      .nav-links {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+
+      .press-more-grid { grid-template-columns: 1fr; }
     }
 
     /* PRESS */
