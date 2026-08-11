@@ -1019,9 +1019,31 @@
     </div>
     <div class="projects-list">
 
+      <a href="https://github.com/avabrooks/dinner-scout" class="project-item">
+        <div class="project-header">
+          <span class="project-num">003</span>
+          <h3 class="project-title">NYC: Eat + Drink — Restaurant, Bar & Crawl Planner</h3>
+          <span class="project-arrow">↗</span>
+       </div>
+        <p class="project-meta">Aug 2026 &nbsp;·&nbsp; Personal Project &nbsp;·&nbsp; Full-Stack Development</p>
+        <p class="project-desc">Built a personal restaurant/bar/cafe tracker that pulls live search, ratings, and photos from Google Places, ranks a want-to-go list against places I've already rated highly, and lets me plan multi-stop nights out with a live route map. Deployed as a static frontend on GitHub Pages backed by a Postgres database, with zero backend server to maintain.</p>
+        <ul class="project-bullets">
+          <li><strong>Live Places Integration</strong> — Wired up Google's Places API (New) and Maps JavaScript API entirely client-side, with a custom dark map style and category-coded pins for restaurants, bars, cafes, and dessert spots</li>
+          <li><strong>Recommendation Engine</strong> — Built a heuristic scorer that ranks the want-to-go list by tag/category overlap with highly-rated visited places, plus a discovery search that surfaces new spots similar to existing favorites</li>
+          <li><strong>Serverless Data Layer</strong> — Designed a Postgres schema on Supabase (places, crawls, crawl stops) with row-level security, giving the static frontend persistent storage with no custom backend</li>
+          <li><strong>CI/CD Deployment</strong> — Set up a GitHub Actions workflow to build and publish to GitHub Pages on every push, with API keys and secrets managed outside the codebase</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">React</span>
+          <span class="tag">Vite</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">Google Maps API</span>
+          <span class="tag">GitHub Actions</span>
+        </div>
+      </a>
       <a href="https://github.com/avabrooks/wine-agent" class="project-item">
         <div class="project-header">
-          <span class="project-num">001</span>
+          <span class="project-num">002</span>
           <h3 class="project-title">Wine AI Agent — Natural Language Excel Add-in</h3>
           <span class="project-arrow">↗</span>
        </div>
